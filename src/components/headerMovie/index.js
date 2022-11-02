@@ -12,7 +12,6 @@ const MovieHeader = (props) => {
   const movie = props.movie;
   const favouriteMovies = JSON.parse(localStorage.getItem("favourites"));
   //TODO
-  console.log(favouriteMovies);
   return (
     <Paper
       component="div"
@@ -29,7 +28,7 @@ const MovieHeader = (props) => {
       </IconButton>
 
       {
-        favouriteMovies.movie ? (
+        favouriteMovies ? (
           <Avatar sx={{ backgroundColor: 'red' }}>
             <FavoriteIcon />
           </Avatar>
