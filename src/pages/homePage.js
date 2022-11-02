@@ -8,7 +8,6 @@ const MovieListPage = (props) => {
   const [movies, setMovies] = useState([]);
   const [nameFilter, setNameFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
-
   const genreId = Number(genreFilter);
 
   let displayedMovies = movies
@@ -22,6 +21,13 @@ const MovieListPage = (props) => {
   const handleChange = (type, value) => {
     if (type === "name") setNameFilter(value);
     else setGenreFilter(value);
+  };
+
+  const addToFavourites = (movieId) => {
+    const updatedMovies = movies.map((m) =>
+      m.id === movieId ? { ...m, favourite: true } : m
+    );
+    setMovies(updatedMovies);
   };
 
   useEffect(() => {
@@ -52,7 +58,7 @@ const MovieListPage = (props) => {
             genreFilter={genreFilter}
           />
         </Grid>
-        <MovieList movies={displayedMovies} />
+        <MovieList movies={displayedMovies} selectFavourite={addToFavourites} />
       </Grid>
     </Grid>
   );
