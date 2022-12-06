@@ -5,6 +5,7 @@ import HomePage from "./pages/homePage";
 import MoviePage from "./pages/movieDetailsPage";
 import UpcomingMoviesPage from "./pages/upcomingMoviesPage";
 import FavouriteMoviesPage from "./pages/favouriteMoviesPage";
+import PopularMoviesPage from "./pages/popularMoviesPage";
 import { Link } from 'react-router-dom';
 import MovieReviewPage from "./pages/movieReviewPage";
 import SiteHeader from './components/siteHeader';
@@ -34,6 +35,7 @@ const App = () => {
             <Route path="/reviews/:id" element={<MovieReviewPage />} />
             <Route exact path="/movies/upcoming" element={<UpcomingMoviesPage />} />
             <Route exact path="/movies/favourites" element={<FavouriteMoviesPage />} />
+            <Route exact path="/movies/popular" element={<PopularMoviesPage /> } />
             <Route path="/movies/:id" element={<MoviePage />} />
             <Route path="/" element={<HomePage />} />
             <Route path="*" element={<Navigate to="/" />} />
