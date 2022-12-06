@@ -6,7 +6,7 @@ import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
 import AddToMustWatchIcon from '../components/cardIcons/addToMustWatch';
 
-const HomePage = (props) => {
+const UpcomingMoviesPage = (props) => {
 
   const {  data, error, isLoading, isError }  = useQuery('upcoming', getUpcomingMovies)
 
@@ -22,7 +22,6 @@ const HomePage = (props) => {
   // Redundant, but necessary to avoid app crashing.
   const mustWatch = movies.filter(m => m.mustWatch)
   localStorage.setItem('mustWatch', JSON.stringify(mustWatch))
-  const addToMustWatch = (movieId) => true 
 
   return (
     <PageTemplate
@@ -35,4 +34,4 @@ const HomePage = (props) => {
 );
 };
 
-export default HomePage;
+export default UpcomingMoviesPage;
